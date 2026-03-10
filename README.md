@@ -10,8 +10,6 @@ Classical quantitative finance conditions portfolio decisions on statistical cor
 
 This project proposes an alternative epistemology: **extract the causal structure of the macroeconomy directly from the authoritative text that shapes market expectations** — FOMC minutes, BIS working papers, IMF surveillance reports, congressional budget analyses — and encode it as a typed, machine-readable Causal Directed Acyclic Graph (DAG). These DAGs are then *sequencified* into structured text sequences and fed to a deep autoregressive language model whose architecture is constrained by the causal skeleton, rather than operating over an unconstrained token space.
 
-The approach is grounded in **Jasjeet Sekhon's** research programme on causal inference in high-dimensional observational settings, specifically his work on using deep generative models as causal inference engines — learning the conditional intervention distribution P(Y | do(X)) rather than merely the observational joint P(X, Y).
-
 ---
 
 ## Research Foundation
