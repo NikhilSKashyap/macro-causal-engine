@@ -1,0 +1,188 @@
+{
+  "source_text_snippet": "With the federal debt-to-GDP ratio approaching 122 percent and the Congressional Budget Office projecting net interest outlays to consume 3.6 percent of GDP within the decade, sovereign debt sustaina",
+  "nodes": [
+    {
+      "id": "debt_to_gdp",
+      "label": "Federal debt-to-GDP ratio",
+      "description": "Ratio of federal government debt to gross domestic product, approaching 122 percent",
+      "variable_type": "financial"
+    },
+    {
+      "id": "net_interest_outlays",
+      "label": "Net interest outlays",
+      "description": "Government spending on debt service, projected at 3.6 percent of GDP",
+      "variable_type": "financial"
+    },
+    {
+      "id": "sovereign_debt_sustainability_concerns",
+      "label": "Sovereign debt sustainability concerns",
+      "description": "Market and policy concerns about the government's ability to service debt obligations",
+      "variable_type": "expectational"
+    },
+    {
+      "id": "monetary_policy_independence",
+      "label": "Monetary policy independence",
+      "description": "Central bank's ability to conduct monetary policy free from fiscal constraints",
+      "variable_type": "policy"
+    },
+    {
+      "id": "fiscal_dominance_risk",
+      "label": "Fiscal dominance risk",
+      "description": "Risk that the central bank will be compelled to monetize deficit spending to prevent sovereign debt rollover crises",
+      "variable_type": "expectational"
+    },
+    {
+      "id": "treasury_term_premiums",
+      "label": "Treasury term premiums",
+      "description": "Risk premiums on long-duration Treasury securities, rose 48 basis points",
+      "variable_type": "financial"
+    },
+    {
+      "id": "fiscal_deficits",
+      "label": "Fiscal deficits",
+      "description": "Widening gap between government revenues and expenditures",
+      "variable_type": "financial"
+    },
+    {
+      "id": "real_long_term_interest_rates",
+      "label": "Real long-term interest rates",
+      "description": "Inflation-adjusted long-term borrowing costs sustained at elevated levels",
+      "variable_type": "financial"
+    },
+    {
+      "id": "private_investment",
+      "label": "Private investment",
+      "description": "Business capital expenditure crowded out by fiscal deficits",
+      "variable_type": "real"
+    },
+    {
+      "id": "public_debt",
+      "label": "Public debt",
+      "description": "Elevated level of government debt outstanding",
+      "variable_type": "financial"
+    },
+    {
+      "id": "fiscal_multiplier",
+      "label": "Fiscal multiplier",
+      "description": "Effectiveness of fiscal stimulus in generating additional economic activity",
+      "variable_type": "real"
+    },
+    {
+      "id": "ricardian_equivalence_effects",
+      "label": "Ricardian equivalence effects",
+      "description": "Household behavioral response anticipating future tax liabilities from current deficits",
+      "variable_type": "expectational"
+    },
+    {
+      "id": "precautionary_savings",
+      "label": "Precautionary savings",
+      "description": "Household savings increased in anticipation of future tax burdens",
+      "variable_type": "real"
+    },
+    {
+      "id": "aggregate_demand",
+      "label": "Aggregate demand growth",
+      "description": "Overall economic demand growth suppressed by offsetting household behavior",
+      "variable_type": "real"
+    }
+  ],
+  "edges": [
+    {
+      "cause": "debt_to_gdp",
+      "effect": "sovereign_debt_sustainability_concerns",
+      "confounder": null,
+      "mechanism": "High debt-to-GDP ratio (122%) signals potential government insolvency risk",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "net_interest_outlays",
+      "effect": "sovereign_debt_sustainability_concerns",
+      "confounder": null,
+      "mechanism": "Projected net interest outlays of 3.6% of GDP raise concerns about fiscal capacity",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "sovereign_debt_sustainability_concerns",
+      "effect": "monetary_policy_independence",
+      "confounder": null,
+      "mechanism": "Sustainability concerns impose binding constraints on central bank autonomy",
+      "confidence_score": 1.0,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "sovereign_debt_sustainability_concerns",
+      "effect": "fiscal_dominance_risk",
+      "confounder": null,
+      "mechanism": "Debt sustainability fears increase market perception of potential central bank monetization",
+      "confidence_score": 0.8,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "fiscal_dominance_risk",
+      "effect": "treasury_term_premiums",
+      "confounder": null,
+      "mechanism": "Market participants price fiscal dominance risk into long-duration Treasury premiums",
+      "confidence_score": 1.0,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "fiscal_deficits",
+      "effect": "real_long_term_interest_rates",
+      "confounder": null,
+      "mechanism": "Widening deficits sustain elevated real long-term rates through crowding-out pressure",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "real_long_term_interest_rates",
+      "effect": "private_investment",
+      "confounder": null,
+      "mechanism": "High real rates make capital projects unprofitable at historical return thresholds",
+      "confidence_score": 1.0,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "public_debt",
+      "effect": "fiscal_multiplier",
+      "confounder": null,
+      "mechanism": "Elevated public debt reduces effectiveness of future fiscal stimulus",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "public_debt",
+      "effect": "ricardian_equivalence_effects",
+      "confounder": null,
+      "mechanism": "High debt triggers household expectations of future tax liabilities",
+      "confidence_score": 0.85,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "ricardian_equivalence_effects",
+      "effect": "precautionary_savings",
+      "confounder": null,
+      "mechanism": "Anticipation of future taxes leads households to increase savings",
+      "confidence_score": 1.0,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "precautionary_savings",
+      "effect": "aggregate_demand",
+      "confounder": null,
+      "mechanism": "Increased savings partially offsets expansionary fiscal impulses, suppressing demand",
+      "confidence_score": 0.95,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "fiscal_multiplier",
+      "effect": "aggregate_demand",
+      "confounder": "ricardian_equivalence_effects",
+      "mechanism": "Reduced multiplier diminishes fiscal stimulus impact on aggregate demand, confounded by Ricardian effects",
+      "confidence_score": 0.85,
+      "edge_sign": "positive"
+    }
+  ],
+  "summary": "The passage describes a fiscal-monetary feedback loop in which elevated debt-to-GDP ratios and rising net interest outlays raise sovereign debt sustainability concerns. These concerns constrain monetary policy independence and elevate fiscal dominance risk, which markets price into higher Treasury term premiums. Widening fiscal deficits crowd out private investment by sustaining high real long-term interest rates. Simultaneously, elevated public debt reduces the fiscal multiplier through Ricardian equivalence: households anticipate future tax liabilities, increase precautionary savings, and thereby partially offset expansionary fiscal impulses, ultimately suppressing aggregate demand growth."
+}

@@ -1,0 +1,186 @@
+{
+  "source_text_snippet": "Despite headline payroll growth averaging 172,000 jobs per month over the trailing six-month window, underlying labor market dynamics revealed a compositional deterioration: full-time employ",
+  "nodes": [
+    {
+      "id": "full_time_employment",
+      "label": "Full-time Employment",
+      "description": "Level of full-time employment, contracted by 0.3 percent",
+      "variable_type": "real"
+    },
+    {
+      "id": "part_time_employment",
+      "label": "Part-time Employment for Economic Reasons",
+      "description": "Part-time employment for economic reasons, rose 5.7 percent",
+      "variable_type": "real"
+    },
+    {
+      "id": "employer_hours_adjustment",
+      "label": "Employer Hours Adjustment",
+      "description": "Employers adjusting margins by reducing hours rather than initiating layoffs",
+      "variable_type": "real"
+    },
+    {
+      "id": "real_hourly_earnings",
+      "label": "Real Average Hourly Earnings",
+      "description": "Real average hourly earnings, grew 1.1 percent year-over-year after adjusting for CPI",
+      "variable_type": "real"
+    },
+    {
+      "id": "household_purchasing_power",
+      "label": "Household Purchasing Power",
+      "description": "Purchasing power of households, compressed by low real wage growth",
+      "variable_type": "real"
+    },
+    {
+      "id": "personal_savings_rate",
+      "label": "Personal Savings Rate",
+      "description": "Personal savings rate, declined by 0.4 percentage points",
+      "variable_type": "real"
+    },
+    {
+      "id": "labor_productivity_growth",
+      "label": "Labor Productivity Growth",
+      "description": "Labor productivity growth at 0.9 percent annualized",
+      "variable_type": "real"
+    },
+    {
+      "id": "nominal_wage_growth",
+      "label": "Nominal Wage Growth",
+      "description": "Nominal wage growth of 4.3 percent",
+      "variable_type": "real"
+    },
+    {
+      "id": "unit_labor_costs",
+      "label": "Unit Labor Costs",
+      "description": "Unit labor costs, widened by 3.2 percent due to wage-productivity gap",
+      "variable_type": "price"
+    },
+    {
+      "id": "services_sector_prices",
+      "label": "Services-Sector Prices",
+      "description": "Prices in the services sector, under upward pressure from rising unit labor costs",
+      "variable_type": "price"
+    },
+    {
+      "id": "wage_stickiness",
+      "label": "Wage Stickiness",
+      "description": "Observed stickiness in wages, potentially reflecting multiple structural factors",
+      "variable_type": "real"
+    },
+    {
+      "id": "labor_market_tightness",
+      "label": "Labor Market Tightness",
+      "description": "Degree of tightness in labor markets, potential driver of wage stickiness",
+      "variable_type": "real"
+    },
+    {
+      "id": "inflation_expectations",
+      "label": "Anchored Inflation Expectations",
+      "description": "Inflation expectations anchored from pandemic-era shocks",
+      "variable_type": "expectational"
+    },
+    {
+      "id": "supply_side_rigidities",
+      "label": "Structural Supply-Side Rigidities",
+      "description": "Supply-side rigidities from demographic shifts and reduced prime-age labor force participation",
+      "variable_type": "real"
+    },
+    {
+      "id": "cpi",
+      "label": "Consumer Price Index (CPI)",
+      "description": "Consumer price index used to adjust nominal earnings to real earnings",
+      "variable_type": "price"
+    }
+  ],
+  "edges": [
+    {
+      "cause": "employer_hours_adjustment",
+      "effect": "full_time_employment",
+      "confounder": null,
+      "mechanism": "Employers reduce full-time positions as part of margin adjustment strategy",
+      "confidence_score": 0.85,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "employer_hours_adjustment",
+      "effect": "part_time_employment",
+      "confounder": null,
+      "mechanism": "Employers shift to part-time employment to reduce hours without layoffs",
+      "confidence_score": 0.85,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "real_hourly_earnings",
+      "effect": "household_purchasing_power",
+      "confounder": null,
+      "mechanism": "Low real wage growth compresses household purchasing power",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "household_purchasing_power",
+      "effect": "personal_savings_rate",
+      "confounder": null,
+      "mechanism": "Compressed purchasing power contributes to decline in personal savings rate",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "labor_productivity_growth",
+      "effect": "unit_labor_costs",
+      "confounder": "nominal_wage_growth",
+      "mechanism": "Low productivity growth fails to offset nominal wage growth, widening unit labor costs",
+      "confidence_score": 0.95,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "nominal_wage_growth",
+      "effect": "unit_labor_costs",
+      "confounder": "labor_productivity_growth",
+      "mechanism": "Nominal wage growth exceeds productivity growth, widening unit labor costs",
+      "confidence_score": 0.95,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "unit_labor_costs",
+      "effect": "services_sector_prices",
+      "confounder": null,
+      "mechanism": "Rising unit labor costs sustain upward pressure on services-sector prices",
+      "confidence_score": 0.95,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "labor_market_tightness",
+      "effect": "wage_stickiness",
+      "confounder": null,
+      "mechanism": "Genuine labor market tightness may reflect in observed wage stickiness",
+      "confidence_score": 0.5,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "inflation_expectations",
+      "effect": "wage_stickiness",
+      "confounder": null,
+      "mechanism": "Anchored inflation expectations from pandemic-era shocks may contribute to wage stickiness",
+      "confidence_score": 0.5,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "supply_side_rigidities",
+      "effect": "wage_stickiness",
+      "confounder": null,
+      "mechanism": "Structural supply-side rigidities from demographic shifts and reduced labor force participation contribute to wage stickiness",
+      "confidence_score": 0.5,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "cpi",
+      "effect": "real_hourly_earnings",
+      "confounder": null,
+      "mechanism": "CPI deflates nominal earnings to compute real hourly earnings",
+      "confidence_score": 1.0,
+      "edge_sign": "negative"
+    }
+  ],
+  "summary": "The passage describes a labor market undergoing compositional deterioration where employers adjust by reducing hours (shifting from full-time to part-time employment) rather than conducting layoffs. Low real wage growth (1.1%) compresses household purchasing power and drives down the personal savings rate. Meanwhile, nominal wage growth (4.3%) outpaces labor productivity growth (0.9%), widening unit labor costs by 3.2% and sustaining upward pressure on services-sector prices. The observed wage stickiness is attributed—with uncertainty—to potential drivers including labor market tightness, anchored inflation expectations from the pandemic, or structural supply-side rigidities stemming from demographic changes and reduced prime-age labor force participation."
+}

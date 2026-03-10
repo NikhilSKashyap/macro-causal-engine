@@ -1,0 +1,7 @@
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+anthropic==0.40.0
+torch==2.5.1
+networkx==3.4.2
+ray==2.40.0

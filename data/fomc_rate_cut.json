@@ -1,0 +1,162 @@
+{
+  "source_text_snippet": "Members noted that, while headline PCE inflation had decelerated materially to 2.4 percent on a twelve-month basis, the stickiness of services-ex-housing components—particularly non-market services",
+  "nodes": [
+    {
+      "id": "headline_pce_inflation",
+      "label": "Headline PCE Inflation",
+      "description": "Overall personal consumption expenditures price index inflation, reported at 2.4 percent on twelve-month basis",
+      "variable_type": "price"
+    },
+    {
+      "id": "services_ex_housing_inflation",
+      "label": "Services-ex-Housing Inflation",
+      "description": "Inflation in services components excluding housing, particularly non-market services tied to wage-sensitive industries",
+      "variable_type": "price"
+    },
+    {
+      "id": "monetary_tightening",
+      "label": "Monetary Tightening Cycle",
+      "description": "Cumulative 525 basis-point interest rate increase implemented by the Federal Reserve",
+      "variable_type": "policy"
+    },
+    {
+      "id": "aggregate_demand",
+      "label": "Aggregate Demand",
+      "description": "Total demand for goods and services in the economy, compressed by monetary tightening",
+      "variable_type": "real"
+    },
+    {
+      "id": "unemployment_rate",
+      "label": "Unemployment Rate",
+      "description": "Share of labor force unemployed, increased from cycle low of 3.4 percent to 4.1 percent",
+      "variable_type": "real"
+    },
+    {
+      "id": "wage_cost_pressures",
+      "label": "Wage-Cost Pressures",
+      "description": "Upward pressure on wages from tight labor market conditions",
+      "variable_type": "price"
+    },
+    {
+      "id": "premature_easing",
+      "label": "Premature Policy Easing",
+      "description": "Potential early reduction in interest rates before inflation is fully controlled",
+      "variable_type": "policy"
+    },
+    {
+      "id": "inflation_expectations",
+      "label": "Inflation Expectations",
+      "description": "Public and market expectations about future inflation rates",
+      "variable_type": "expectational"
+    },
+    {
+      "id": "geopolitical_energy_prices",
+      "label": "Geopolitical Energy Price Volatility",
+      "description": "Energy price fluctuations driven by geopolitical events",
+      "variable_type": "external"
+    },
+    {
+      "id": "federal_funds_rate",
+      "label": "Federal Funds Rate",
+      "description": "Target policy interest rate, subject to 25-basis-point cut decision",
+      "variable_type": "policy"
+    },
+    {
+      "id": "core_goods_disinflation",
+      "label": "Core Goods Disinflation",
+      "description": "Declining inflation in core goods categories",
+      "variable_type": "price"
+    }
+  ],
+  "edges": [
+    {
+      "cause": "monetary_tightening",
+      "effect": "aggregate_demand",
+      "confounder": null,
+      "mechanism": "Higher interest rates increase borrowing costs and reduce consumption and investment spending",
+      "confidence_score": 1.0,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "aggregate_demand",
+      "effect": "unemployment_rate",
+      "confounder": null,
+      "mechanism": "Compressed demand reduces labor demand, leading to higher unemployment",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "unemployment_rate",
+      "effect": "wage_cost_pressures",
+      "confounder": null,
+      "mechanism": "Higher unemployment slack reduces workers' bargaining power and moderates wage growth",
+      "confidence_score": 1.0,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "wage_cost_pressures",
+      "effect": "services_ex_housing_inflation",
+      "confounder": null,
+      "mechanism": "Wage-sensitive industries pass through labor costs to service prices",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "services_ex_housing_inflation",
+      "effect": "headline_pce_inflation",
+      "confounder": null,
+      "mechanism": "Services components contribute to overall inflation measure with sticky upward pressure",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "premature_easing",
+      "effect": "inflation_expectations",
+      "confounder": "geopolitical_energy_prices",
+      "mechanism": "Early rate cuts signal reduced commitment to price stability, potentially unanchoring expectations",
+      "confidence_score": 0.8,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "geopolitical_energy_prices",
+      "effect": "inflation_expectations",
+      "confounder": null,
+      "mechanism": "Persistent energy price volatility creates uncertainty and upside risks to inflation outlook",
+      "confidence_score": 0.7,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "inflation_expectations",
+      "effect": "headline_pce_inflation",
+      "confounder": null,
+      "mechanism": "Unanchored expectations feed into wage-price dynamics and realized inflation",
+      "confidence_score": 0.8,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "headline_pce_inflation",
+      "effect": "federal_funds_rate",
+      "confounder": null,
+      "mechanism": "Progress toward 2 percent inflation objective supports decision to cut rates by 25 basis points",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "unemployment_rate",
+      "effect": "federal_funds_rate",
+      "confounder": null,
+      "mechanism": "Labor market developments inform data-dependent rate adjustment path",
+      "confidence_score": 0.8,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "core_goods_disinflation",
+      "effect": "federal_funds_rate",
+      "confounder": null,
+      "mechanism": "Declining core goods inflation supports case for policy easing",
+      "confidence_score": 0.8,
+      "edge_sign": "negative"
+    }
+  ],
+  "summary": "The passage describes a monetary transmission mechanism where a 525-basis-point tightening cycle compressed aggregate demand, raising unemployment from 3.4% to 4.1%, which in turn reduced wage-cost pressures that had been feeding sticky services-ex-housing inflation. Despite headline PCE inflation decelerating to 2.4%, persistent wage-sensitive service price stickiness and geopolitical energy volatility create upside risks. The Committee balanced these concerns against progress on inflation, authorizing a 25-basis-point rate cut while warning that premature easing could reignite inflation expectations. The decision reflects data-dependent policy guided by labor market slack, core goods disinflation, and proximity to the 2% inflation target."
+}

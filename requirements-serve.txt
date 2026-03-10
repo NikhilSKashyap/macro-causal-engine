@@ -1,0 +1,10 @@
+# Serving-layer dependencies only.
+# Ray is excluded (used only by distributed_batch.py, not the FastAPI app).
+# torch is installed separately from the CPU-only index in the Dockerfile
+# to avoid pulling 2.5 GB of CUDA wheels into the production image.
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+anthropic==0.40.0
+networkx==3.4.2
+transformers==4.47.1

@@ -1,0 +1,152 @@
+{
+  "source_text_snippet": "A 38-percent appreciation of West Texas Intermediate crude oil prices, catalyzed by OPEC+ supply curtailments and renewed Middle Eastern geopolitical tensions, transmitted through the energy import",
+  "nodes": [
+    {
+      "id": "opec_supply_curtailments",
+      "label": "OPEC+ supply curtailments",
+      "description": "Reduction in oil supply by OPEC+ countries",
+      "variable_type": "external"
+    },
+    {
+      "id": "geopolitical_tensions",
+      "label": "Middle Eastern geopolitical tensions",
+      "description": "Geopolitical instability in oil-producing Middle Eastern regions",
+      "variable_type": "external"
+    },
+    {
+      "id": "crude_oil_prices",
+      "label": "WTI crude oil prices",
+      "description": "West Texas Intermediate crude oil benchmark prices (38% appreciation)",
+      "variable_type": "price"
+    },
+    {
+      "id": "ppi_intermediate",
+      "label": "Producer price inflation (intermediate goods)",
+      "description": "Producer price inflation for intermediate goods (1.9 percentage point increase)",
+      "variable_type": "price"
+    },
+    {
+      "id": "firm_margin_compression",
+      "label": "Firm margin compression",
+      "description": "Reduction in profit margins as firms absorb cost increases without full pass-through",
+      "variable_type": "real"
+    },
+    {
+      "id": "profit_growth",
+      "label": "Profit growth",
+      "description": "Growth rate of corporate profits, particularly for firms with limited pricing power",
+      "variable_type": "real"
+    },
+    {
+      "id": "usd_index",
+      "label": "U.S. dollar index",
+      "description": "Trade-weighted value of the U.S. dollar (4.3% depreciation)",
+      "variable_type": "financial"
+    },
+    {
+      "id": "import_price_inflation",
+      "label": "Import price inflation",
+      "description": "Inflation in import prices, particularly for dollar-invoiced trade",
+      "variable_type": "price"
+    },
+    {
+      "id": "domestic_policy_rates_em",
+      "label": "Emerging market domestic policy rates",
+      "description": "Central bank policy interest rates in emerging market economies",
+      "variable_type": "policy"
+    },
+    {
+      "id": "domestic_recession_em",
+      "label": "Emerging market domestic recessions",
+      "description": "Economic contraction risk in emerging market economies",
+      "variable_type": "real"
+    },
+    {
+      "id": "exchange_rate_depreciation_em",
+      "label": "Emerging market exchange rate depreciation",
+      "description": "Currency depreciation in emerging market economies",
+      "variable_type": "financial"
+    },
+    {
+      "id": "bop_pressures",
+      "label": "Balance-of-payments pressures",
+      "description": "External financing pressures on dollar-denominated sovereign debt",
+      "variable_type": "financial"
+    }
+  ],
+  "edges": [
+    {
+      "cause": "opec_supply_curtailments",
+      "effect": "crude_oil_prices",
+      "confounder": null,
+      "mechanism": "Supply reduction in global oil markets increases benchmark prices",
+      "confidence_score": 1.0,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "geopolitical_tensions",
+      "effect": "crude_oil_prices",
+      "confounder": null,
+      "mechanism": "Geopolitical risk premium and supply uncertainty drive oil price appreciation",
+      "confidence_score": 1.0,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "crude_oil_prices",
+      "effect": "ppi_intermediate",
+      "confounder": null,
+      "mechanism": "Energy import channel transmits crude oil price increases to intermediate goods producer prices",
+      "confidence_score": 1.0,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "ppi_intermediate",
+      "effect": "firm_margin_compression",
+      "confounder": null,
+      "mechanism": "Firms with limited pricing power absorb cost increases rather than passing through to consumers",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "firm_margin_compression",
+      "effect": "profit_growth",
+      "confounder": null,
+      "mechanism": "Margin compression directly constrains profit growth when costs cannot be fully passed through",
+      "confidence_score": 1.0,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "usd_index",
+      "effect": "import_price_inflation",
+      "confounder": null,
+      "mechanism": "Dollar depreciation amplifies import prices, particularly for dollar-invoiced trade, creating inflation feedback loops",
+      "confidence_score": 1.0,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "domestic_policy_rates_em",
+      "effect": "domestic_recession_em",
+      "confounder": null,
+      "mechanism": "Tightening domestic policy rates to defend currency pegs deepens domestic economic contraction",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "exchange_rate_depreciation_em",
+      "effect": "bop_pressures",
+      "confounder": null,
+      "mechanism": "Currency depreciation increases the domestic-currency burden of dollar-denominated sovereign debt",
+      "confidence_score": 1.0,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "import_price_inflation",
+      "effect": "domestic_policy_rates_em",
+      "confounder": null,
+      "mechanism": "Imported inflation pressures force emerging market central banks to consider tightening monetary policy",
+      "confidence_score": 0.7,
+      "edge_sign": "positive"
+    }
+  ],
+  "summary": "The causal chain begins with OPEC+ supply curtailments and Middle Eastern geopolitical tensions driving a 38% appreciation in WTI crude oil prices. This oil price shock transmits through the energy import channel to increase producer price inflation for intermediate goods by 1.9 percentage points. Firms with limited pricing power, unable to fully pass through these cost increases, experience margin compression that constrains profit growth. Concurrently, a 4.3% depreciation of the U.S. dollar index amplifies import price inflation through dollar-invoiced trade channels, creating imported inflation feedback loops. This places emerging market central banks in a policy trilemma: tightening domestic policy rates to defend currency pegs and combat imported inflation risks deepening domestic recessions, while allowing exchange rate depreciation exacerbates balance-of-payments pressures on dollar-denominated sovereign debt obligations."
+}

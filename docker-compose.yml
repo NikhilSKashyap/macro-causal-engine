@@ -1,0 +1,81 @@
+name: macro-causal-engine
+
+# =============================================================================
+# Services
+# ─────────
+# api   — FastAPI serving layer (extractor + sequencifier pipeline).
+#         Exposes POST /extract-and-sequencify on host port 8000.
+#
+# Usage
+# ─────
+# Copy .env.example to .env and set ANTHROPIC_API_KEY, then:
+#
+#   docker compose up --build          # build and start
+#   docker compose up -d               # detached (background)
+#   docker compose logs -f api         # tail logs
+#   docker compose down                # stop and remove containers
+# =============================================================================
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime          # explicit target prevents accidental builder leaks
+    image: macro-causal-engine:latest
+    container_name: macro-causal-engine-api
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      # Prefer explicit env var over .env file for CI/CD pipelines.
+      # docker compose will use the value from the shell environment if set,
+      # falling back to the .env file entry.
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PYTHONUNBUFFERED=1
+
+    env_file:
+      - path: .env
+        required: false        # allow running without a .env file in CI
+
+    volumes:
+      # Mount extracted DAG JSON files as read-only so the API can serve
+      # pre-computed DAGs without re-extracting. Remove this mount if the
+      # container should be fully stateless.
+      - ./data:/app/data:ro
+
+    healthcheck:
+      test:
+        - "CMD"
+        - "python"
+        - "-c"
+        - >
+          import urllib.request, sys;
+          r = urllib.request.urlopen('http://localhost:8000/health', timeout=8);
+          sys.exit(0 if r.status == 200 else 1)
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+    restart: unless-stopped
+
+    # Resource limits — tune for your host or Fargate task definition.
+    # The serving layer is I/O-bound (Anthropic API calls); CPU ceiling is
+    # generous to handle tokenizer init and sequencification bursts.
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"

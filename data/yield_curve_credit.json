@@ -1,0 +1,190 @@
+{
+  "source_text_snippet": "The persistent inversion of the Treasury yield curve—with the 2-year note yielding approximately 65 basis points above the 10-year bond for the fifth consecutive quarter—continued to suppress net interest",
+  "nodes": [
+    {
+      "id": "yield_curve_inversion",
+      "label": "Treasury Yield Curve Inversion",
+      "description": "Inversion of the Treasury yield curve with 2-year note yielding 65 basis points above 10-year bond",
+      "variable_type": "financial"
+    },
+    {
+      "id": "net_interest_margins",
+      "label": "Net Interest Margins (Regional Banks)",
+      "description": "Net interest margins at regional banks",
+      "variable_type": "financial"
+    },
+    {
+      "id": "lending_standards",
+      "label": "C&I Lending Standards",
+      "description": "Commercial and industrial lending standards at regional banks",
+      "variable_type": "financial"
+    },
+    {
+      "id": "credit_growth_sme",
+      "label": "Credit Growth to SMEs",
+      "description": "Credit growth to small and medium-sized enterprises, decelerated to 1.2% year-over-year",
+      "variable_type": "financial"
+    },
+    {
+      "id": "collateral_requirements",
+      "label": "Collateral Requirements",
+      "description": "Collateral requirements imposed by loan officers",
+      "variable_type": "financial"
+    },
+    {
+      "id": "credit_lines",
+      "label": "Credit Lines",
+      "description": "Credit lines available to borrowers",
+      "variable_type": "financial"
+    },
+    {
+      "id": "capex",
+      "label": "Capital Expenditure",
+      "description": "Capital expenditure across non-financial corporates",
+      "variable_type": "real"
+    },
+    {
+      "id": "private_fixed_investment",
+      "label": "Private Fixed Investment",
+      "description": "Private fixed investment in real terms, fell 0.8% quarter-over-quarter",
+      "variable_type": "real"
+    },
+    {
+      "id": "credit_spread",
+      "label": "Investment-Grade to High-Yield Spread",
+      "description": "Sovereign spread between investment-grade and high-yield indices, widened by 140 basis points",
+      "variable_type": "financial"
+    },
+    {
+      "id": "default_risk_premia",
+      "label": "Default Risk Premia",
+      "description": "Default risk premia on corporate bonds",
+      "variable_type": "financial"
+    },
+    {
+      "id": "earnings_revisions",
+      "label": "Earnings Revisions",
+      "description": "Deteriorating earnings revisions for corporates",
+      "variable_type": "expectational"
+    },
+    {
+      "id": "revenue_growth",
+      "label": "Revenue Growth",
+      "description": "Slowing revenue growth for corporates",
+      "variable_type": "real"
+    },
+    {
+      "id": "financial_conditions",
+      "label": "Financial Conditions",
+      "description": "Overall financial conditions for leveraged borrowers",
+      "variable_type": "financial"
+    }
+  ],
+  "edges": [
+    {
+      "cause": "yield_curve_inversion",
+      "effect": "net_interest_margins",
+      "confounder": null,
+      "mechanism": "Persistent yield curve inversion compresses bank profitability by reducing the spread between short-term borrowing and long-term lending rates",
+      "confidence_score": 0.95,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "net_interest_margins",
+      "effect": "lending_standards",
+      "confounder": null,
+      "mechanism": "Suppressed net interest margins induce banks to tighten lending standards to preserve profitability and manage risk",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "lending_standards",
+      "effect": "collateral_requirements",
+      "confounder": null,
+      "mechanism": "Tightening of lending standards manifests through increased collateral requirements",
+      "confidence_score": 0.85,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "lending_standards",
+      "effect": "credit_lines",
+      "confounder": null,
+      "mechanism": "Tightening of lending standards leads to reduction in available credit lines",
+      "confidence_score": 0.85,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "lending_standards",
+      "effect": "credit_growth_sme",
+      "confounder": null,
+      "mechanism": "Tightened lending standards directly reduce credit availability and slow credit growth to SMEs",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "collateral_requirements",
+      "effect": "credit_growth_sme",
+      "confounder": "lending_standards",
+      "mechanism": "Higher collateral requirements make it harder for SMEs to obtain credit",
+      "confidence_score": 0.85,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "credit_lines",
+      "effect": "credit_growth_sme",
+      "confounder": "lending_standards",
+      "mechanism": "Reduced credit lines limit borrowing capacity for SMEs",
+      "confidence_score": 0.85,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "credit_growth_sme",
+      "effect": "capex",
+      "confounder": null,
+      "mechanism": "Broad-based deleveraging from reduced credit growth transmits contractionary pressure to corporate capital expenditure",
+      "confidence_score": 0.9,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "capex",
+      "effect": "private_fixed_investment",
+      "confounder": null,
+      "mechanism": "Reduced capital expenditure by non-financial corporates directly translates into declining private fixed investment",
+      "confidence_score": 0.95,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "earnings_revisions",
+      "effect": "default_risk_premia",
+      "confounder": null,
+      "mechanism": "Deteriorating earnings revisions increase perceived default risk and raise risk premia",
+      "confidence_score": 0.85,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "revenue_growth",
+      "effect": "default_risk_premia",
+      "confounder": null,
+      "mechanism": "Slowing revenue growth signals deteriorating corporate fundamentals and increases default risk premia",
+      "confidence_score": 0.85,
+      "edge_sign": "negative"
+    },
+    {
+      "cause": "default_risk_premia",
+      "effect": "credit_spread",
+      "confounder": null,
+      "mechanism": "Rising default risk premia directly widen the spread between investment-grade and high-yield bonds",
+      "confidence_score": 0.95,
+      "edge_sign": "positive"
+    },
+    {
+      "cause": "credit_spread",
+      "effect": "financial_conditions",
+      "confounder": null,
+      "mechanism": "Widening credit spreads tighten financial conditions by increasing borrowing costs for leveraged borrowers",
+      "confidence_score": 0.9,
+      "edge_sign": "negative"
+    }
+  ],
+  "summary": "The passage describes a causal chain originating from persistent Treasury yield curve inversion, which suppresses regional bank net interest margins and induces tightening of commercial and industrial lending standards. This tightening manifests through higher collateral requirements and reduced credit lines, leading to a sharp deceleration in credit growth to SMEs (1.2% y-o-y). The resulting deleveraging transmits contractionary pressure to corporate capital expenditure, causing private fixed investment to fall 0.8% in real terms. Simultaneously, deteriorating earnings revisions and slowing revenue growth drive up default risk premia, widening the investment-grade to high-yield spread by 140 basis points, which further tightens financial conditions for leveraged borrowers dependent on refinancing. The DAG captures two parallel but reinforcing contractionary channels: one through bank lending conditions affecting real investment, and another through credit market pricing affecting financial conditions."
+}
