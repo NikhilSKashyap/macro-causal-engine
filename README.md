@@ -4,10 +4,6 @@
 
 ---
 
-> **Prototype status.** This repository is an active research prototype exploring the application of Jasjeet Sekhon's framework on *Deep Autoregressive Models as Causal Inference Engines* to macroeconomic natural language data. It is not production-hardened software. Interfaces, schemas, and architectural decisions are subject to change as the research matures.
-
----
-
 ## Abstract
 
 Classical quantitative finance conditions portfolio decisions on statistical correlations among observable time-series. This approach is fundamentally fragile: correlations are regime-dependent, collapse precisely when accurate signals are most valuable (market dislocations, policy shifts, geopolitical shocks), and carry no information about the underlying *data-generating process*. A fund that knows the Federal Reserve will cut rates is far better positioned than one that merely observes that yields and equities have historically co-moved.
@@ -479,18 +475,3 @@ python distributed_batch.py --docs 100000 --real
 | **4 — Causal Inference Model** | Planned | PyTorch transformer with DAG-constrained attention mask; trains on Stage 2 output |
 | **5 — Portfolio Signals** | Planned | `/intervene` API; counterfactual P(Y \| do(X)) queries → alpha generation |
 
----
-
-## References
-
-1. Sekhon, J. S. *Deep Autoregressive Models as Causal Inference Engines*. Working paper.
-
-2. Pearl, J. (2009). *Causality: Models, Reasoning, and Inference* (2nd ed.). Cambridge University Press.
-
-3. Peters, J., Mooij, J., Janzing, D., & Schölkopf, B. (2014). Causal discovery with continuous additive noise models. *Journal of Machine Learning Research*, 15, 2009–2053.
-
-4. Vaswani, A., et al. (2017). Attention is all you need. *Advances in Neural Information Processing Systems*, 30.
-
-5. Anthropic. (2024). *Claude API Documentation — Tool Use*. Retrieved from the Anthropic developer documentation.
-
-6. Loshchilov, I., & Hutter, F. (2019). Decoupled weight decay regularization. *International Conference on Learning Representations*.
